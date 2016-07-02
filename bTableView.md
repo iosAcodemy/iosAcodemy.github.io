@@ -67,11 +67,11 @@ Zadanie 4
 <br>
 
 
-* Stwórz metodę zwracającą komorkę typu  ```AlbumTrackTableViewCell``` przy użyciu ```tableView.dequeReusableCell(indexPath:indexPath)```.
+* Stwórz metodę zwracającą komorkę typu  ```AlbumTrackTableViewCell``` przy użyciu ```tableView.dequeReusableCell(indexPath:indexPath)``` dla obiektu typu ```Track```.
 
 * Skonfiguruj komórkę obiektem  z tabeli ```items``` odpowiedniej sekcji.
 
-* Zaimplementuj analogiczną metodę dla  ```SearchResultTableViewCell```
+* Zaimplementuj analogiczną metodę dla obiektów typu ```Album``` - komórka typu```SearchResultTableViewCell```
 
 
 <br>
