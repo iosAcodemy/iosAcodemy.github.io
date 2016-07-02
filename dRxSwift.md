@@ -9,22 +9,18 @@ permalink: /rxswift/
 Zadanie 1
 ------------
 
-<b>
+<br>
 
 * Przerób wyszukiwanie w FeedViewController aby odbywało sie po każdej wpisanej literce.
-
  <br> 
 
 *  Wyszukiwanie ma rozpocząć sie nie wcześniej niż 300ms po wpisaniu znaku. 
-
  <br>
  
 *  Ignorujemy wpisanie i skasowanie tej samej frazy
-
  <br>
  
 * Wyszukiwanie ma rozpocząć sie dopiero od 3-ciego wpisanego znaku
-
  <br>
  
 *  Użyj do tego RxSwifta oraz property rx_text z search bara
