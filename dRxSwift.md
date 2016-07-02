@@ -5,8 +5,10 @@ permalink: /rxswift/
 ---
 
 <br>
+
 Zadanie 1
 ------------
+
 * Przerób wyszukiwanie w FeedViewController aby odbywało sie po każdej wpisanej literce.
  <br>
 *  Wyszukiwanie ma rozpocząć sie nie wcześniej niż 300ms po wpisaniu znaku. 
@@ -20,8 +22,10 @@ Zadanie 1
 
 
 <br>
+
 Zadanie 2
 -----------
+
 <br>
 
 * Utwórz PlayerCellViewModel z nastepujacymi polami typu Variable: <br>
