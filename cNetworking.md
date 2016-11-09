@@ -1,7 +1,7 @@
 ---
 layout: page
-title: Networking
-permalink: /networking/
+title: Validations
+permalink: /validations/
 ---
 
 Zadanie 1
