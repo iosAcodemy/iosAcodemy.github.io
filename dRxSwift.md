@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Requests & RxDataSource
+title: Requests
 permalink: /rxDataSource/
 ---
 
