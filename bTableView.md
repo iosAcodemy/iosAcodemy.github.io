@@ -1,7 +1,7 @@
 ---
 layout: page
-title: TableView
-permalink: /tableView/
+title: Bindings
+permalink: /Bindings/
 ---
 
 
