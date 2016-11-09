@@ -1,7 +1,7 @@
 ---
 layout: page
-title: RxSwift
-permalink: /rxswift/
+title: Requests & RxDataSource
+permalink: /rxDataSource/
 ---
 
 <br>
