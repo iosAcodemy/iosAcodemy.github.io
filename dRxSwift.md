@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Requests
-permalink: /rxDataSource/
+permalink: /Requests/
 ---
 
 <br>

@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Validations
-permalink: /validations/
+permalink: /Validations/
 ---
 
 Zadanie 1
