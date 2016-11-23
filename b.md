@@ -4,13 +4,24 @@ title: Bindings
 permalink: /Bindings/
 ---
 
+<br>
+
+W chwili obecnej zmiana danych przez uytkownika nie wpływa w żaden sposób na dane wyświetlane w wizytówce - wyświetlane wartości zależą od zmiennych znajdujących się w `SimpleFormViewModel`.
+W tym ćwiczeniu nauczysz się wiązać ze sobą obiekty znajdujące się w `kontrolerze` i `ViewModelu`, tak aby zmiana ich wartości była odzwierciedlona na wizytówce.
+Spójrz na kod w klasie `SimpleFormViewController` - metoda ```bindLabels()``` odpowiada za powiązanie zmiennych z ViewModelu, z etykietami znajdującymi się w wizytówce.
+
+<br>
 
 Zadanie 1
 ----------
 
 <br>
 
-* Przenieś metody protokołów```UITableViewDataSource``` oraz  ```UITableViewDelegate``` do ```Extension``` klasy ```ArtistViewController```
+Wprowadzenie danych do `firstNameTextField` oraz `lastNameTextField` powinno zmienić wartości wyświetlane w `fullNameLabel`.
+
+* Odkomentuj metodę ```bindTextFields()``` w klasie ```SimpleFormViewController```, uruchom aplikację i spróbuj zmienić dane w ```UITextField```. Czy kod działa poprawnie?
+
+* Spróbuj zmodyfikować kod tak aby wiązanie działało w obie strony (two way binding). Pamiętaj, że zmiany w ```UITextField``` powinny wpłynąć na wartości zmiennych w ```ViewModelu```.
 
 <br>
 
@@ -20,24 +31,14 @@ Zadanie 2
 
 <br>
 
-* Stwórz dwa obiekty typu ```SpotifyItemSection``` dla typów ```Album``` i ```Track``` z parametrami
+Wybranie płci w kontrolerze segmentowym powinno zmieniać wartość `genderLabel`.
+Wykorzystaj zmienne `genderIndex`, `formattedGender` oraz `gender` z `ViewModelu` do wykonania tego zadania.
 
-Album
+* W ```ViewModelu```, w metodzie ```setupObservables``` stwórz odpowiednie ```Observables```, które będą odpowiadały za zwrócenie poprawnej wartości dla wybranej płci.
+    *  Najpierw zmapuj indeks dla wybranego segmentu na odpowiadający mu typ ```Gender``` i powiąż go ze zmienną ```gender```.
+    * W kolejnym kroku zmapuj ```gender``` (wykorzystaj ```Extension```, który znajduje się w ```ViewModelu```) i powiąż go z ```formattedGender```. 
 
-* ```title: "Albums"```
-* ```limit: 4```
-* ```cellHeight: 60```
-
-Tracks
-
-* ```title: "Tracks"```
-* ```limit: 8```
-* ```cellHeight: 45```
-
-<br>
-
-* Stwórz tablicę o nazwie ```sections``` z nowopowstałymi obiektami.
-
+* W kontrolerze zmodyfikuj metodę ```bindSegmentedControl()```, tak aby powiązać przed chwilą stworzone zmiany z wartością wybieraną przez użytkownika.
 
 <br>
 
@@ -47,16 +48,10 @@ Zadanie 3
 
 <br>
 
-Zaktualizuj metody ```getTopTracks()``` oraz  ```getAlbums()``` tak, aby uwzględniały nowe źródła danych ```UITableView```
+Zmiana daty urodzenia w `birthDatePicker` wpływa na wartość `birthLabel`, w wizytówce.
+Wykorzystaj zmienną `birthDate` z `ViewModelu` do wykonania tego zadania.
 
-
-* Dodaj do nich parametr o odpowiednim typie obiektu ```SpotifyItemSection <>```.
-
-* Usuń stare metody `show`
-
-* Ustaw w sekcji property `expand = false` oraz przypisz otrzymane obiekty do `items`
-
-* Odśwież tabelę w clousure  ```clearAllNotice(closure: () ->())```
+* W kontrolerze zmodyfikuj metodę ```bindDatePicker()``` tak aby zmiana daty przez użytkownika wpłnęła na wartość wyświetlaną przez ```birthLabel```.
 
 <br>
 
@@ -66,83 +61,10 @@ Zadanie 4
 
 <br>
 
+Wybranie przycisku `Clear Form` ma przywrócić pierwotny stan formularza.
 
-* Stwórz metodę zwracającą komorkę typu  ```AlbumTrackTableViewCell``` przy użyciu ```tableView.dequeReusableCell(indexPath:indexPath)``` dla obiektu typu ```Track```.
-
-* Skonfiguruj komórkę obiektem  z tabeli ```items``` odpowiedniej sekcji.
-
-* Zaimplementuj analogiczną metodę dla obiektów typu ```Album``` - komórka typu```SearchResultTableViewCell```
-
+* Zaimplementuj metodę ```bindUI()```, w której stworzysz subskrybcję dla zdarzenia naciśnięcia ```clearFormButton``` w przypadku której: 
+    * do ```viewModel``` przypiszesz nowo stworzoną instancję ```SimpleFormViewModel```,
+    * ponownie wywołasz wiązanie ```ViewModelu```.
 
 <br>
-
-
-Zadanie 5
------------
-
-<br>
-
-* Korzystając z utworzonych w poprzednim zadaniu metod, uzupełnij implementację
-<br>
- ```func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell ```
-<br>
-tak, by w zależności od typu obiektu sekcji zwracała odpowiedni typ komórki.
-
-
-<br>
-
-
-Zadanie 6
------------
-
-<br>
-
-Bazując na ustawieniach poszczególnych sekcji znajdujących się w tablicy ```sections```, zaktualizuj implementację poniższych metod:
-
-
-*  ```numberOfSectionsInTableView(tableView: UITableView) -> Int```
-
-* ``` tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String?```
-
-*   ```tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat```
-
-*   ```tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int ```
-
-
-<br>
-
-
-Zadanie 7
------------
-
-<br>
-
-* Wydziel logikę prezentacji kontrolerów do osobnych metod przyjmujących jako parametr obiekt typu ```Album``` dla ```AlbumViewController``` oraz ```Track``` dla ```PlayerViewController```
-
-* W metodzie
-```tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath)  ```, w zależności od typu obiektu klikniętej komórki, wywołaj odpowiednią  metodę prezentującą kontroler następnego widoku.
-
-
-<br>
-
-
-Zadanie 8
------------
-
-<br>
-
-
-* Stwórz metodę ```reloadSection(section: Int)``` która przeładowuje wskazaną sekcję w tabeli z efektem .Fade.
-
-* Nadpisz metodę
- ```tableView(tableView: UITableView, viewForFooterInSection section: Int) -> UIView?```
-
-* Jeżeli paramter sekcji ```hasMore``` ma wartość ```true``` stwórz przy pomocy metody ```tableView.dequeueReusableHeaderFooterView()``` obiekt typu  ```MoreResultsFooterView?```.
-
-
-* Dla stworzonego obiektu przypisz do tapAction closure, który dla danej sekcji ustawi ```expanded = true``` oraz wywoła wcześniej utworzoną metodę ```reloadSection(section: Int)```.
-
-
-* W funkcji ```tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat ``` zwróć odpowiednią wartość wysokości stopki.
-
-* Jeśli parametr sekcji ```hasMore``` posiada wartość ```true``` ustaw wysokość Footera na ```45.0```. W innym przypadku funkcja powinna zwrócić ```CGFloat.min```
