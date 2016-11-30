@@ -7,7 +7,7 @@ permalink: /Validations/
 <br>
 
 W tym ćwiczeniu nauczysz się tworzyć prostą walidację formularzy. Uruchom aplikację i wybierz `Form Validation` - twoim zadaniem będzie implementacja walidacji dla trzech pól `UITextField` i dopiero po pozytywnej ich walidacji aktywacja przycisku `Sign Up`.
-Spójrz na metodę ```setupUI()``` w klasie `FormValidationViewController` - są tam początkowo ukrywane trzy etykiety, które mają poinformaować użytkownika o tym czy w poprawny sposób wpisuje dane w formularzu. Na potrzeby tego ćwiczenia ustalimy, że pole `Username` musi zawierać co najmniej 5 znaków, pole `Password` co najmniej 6 znaków, a pole `Retype password` musi być takie samo jak `Password`.
+Spójrz na metodę ```setupUI()``` w klasie `FormValidationViewController` - są tam początkowo ukrywane trzy etykiety, które mają poinformować użytkownika o tym czy w poprawny sposób wpisuje dane w formularzu. Na potrzeby tego ćwiczenia ustalimy, że pole `Username` musi zawierać co najmniej 5 znaków, pole `Password` co najmniej 6 znaków, a pole `Retype password` musi być takie samo jak `Password`.
 
 <br>
 
@@ -73,7 +73,7 @@ Przejdź do `ViewModelu` i na wzór `usernameValidation` dodaj tam trzy lazy `Ob
 * retypedPasswordValidation
   * Zwróć `Observable`, które będzie połączeniem dwóch `Observable` - `password` i `retypedPassword` i sprawdzi czy obydwie wartości są równe (pomocna będzie metoda `combineLatest`).
   * Następnie zmapuj otrzymaną wartość z użyciem metody `validateSecondPassword(validated: Bool)`.
-  * Żeby upewnić się, że emitowane będą tylko prawidłowe elementy wkorzystaj metodę `skipUntil`, której w argumencie przekażesz wcześniej zaimplementowaną zmienną `passwordValidationSignal`.
+  * Żeby upewnić się, że emitowane będą tylko prawidłowe elementy wykorzystaj metodę `skipUntil`, której w argumencie przekażesz wcześniej zaimplementowaną zmienną `passwordValidationSignal`.
 
 <br>
 
@@ -124,7 +124,7 @@ Zadanie 5
 
 Tak jak w poprzednim ćwiczeniu zaimplementuj zachowanie dla `Clear Form`.
 
-* W metodzie `bindUI()` stworz subskrybcję dla zdarzenia naciśnięcia ```clearFormButton```, która spowoduje wyczyszczenie formularza.
+* W metodzie `bindUI()` stwórz subskrypcję dla zdarzenia naciśnięcia ```clearFormButton```, która spowoduje wyczyszczenie formularza.
 
 <br>
 
