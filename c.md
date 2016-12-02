@@ -6,7 +6,7 @@ permalink: /Validations/
 
 <br>
 
-W tym ćwiczeniu nauczysz się tworzyć prostą walidację formularzy. Uruchom aplikację i wybierz `Form Validation` - twoim zadaniem będzie implementacja walidacji dla trzech pól `UITextField` i dopiero po pozytywnej ich walidacji aktywacja przycisku `Sign Up`.
+W tym ćwiczeniu nauczysz się tworzyć prostą walidację formularzy. Uruchom apilikację i wybierz `Form Validation` - twoim zadaniem będzie implementacja walidacji dla trzech pól `UITextField` i dopiero po pozytywnej ich walidacji aktywacja przycisku `Sign Up`.
 Spójrz na metodę ```setupUI()``` w klasie `FormValidationViewController` - są tam początkowo ukrywane trzy etykiety, które mają poinformować użytkownika o tym czy w poprawny sposób wpisuje dane w formularzu. Na potrzeby tego ćwiczenia ustalimy, że pole `Username` musi zawierać co najmniej 5 znaków, pole `Password` co najmniej 6 znaków, a pole `Retype password` musi być takie samo jak `Password`.
 
 <br>
@@ -65,7 +65,7 @@ Zadanie 3b
 
 Przejdź do `ViewModelu` i na wzór `usernameValidation` dodaj tam trzy lazy `Observable` dla typu `ValidationResult`:
 
-* passwordValidationSignal
+* passwordValidation
   * Z użyciem metody `validatePassword()`.
 * passwordValidationSignal
   * Powinien filtrować wartości typu `ValidationResult` emitowane przez `passwordValidation` i sprawdzać czy są równe `valid`. Użyj do tego operatora ==, który został przeciążony w `extension` klasy `ValidationResult`.
