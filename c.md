@@ -63,7 +63,7 @@ Zadanie 3b
 ----------
 <br>
 
-Przejdź do `ViewModelu` i na wzór `usernameValidation` dodaj tam trzy lazy `Observable` dla typu `ValidationResult`:
+Przejdź do `ViewModelu` i na wzór `usernameValidation` dodaj tam trzy lazy property typu `Observable` dla typu `ValidationResult`:
 
 * passwordValidation
   * Z użyciem metody `validatePassword()`.
