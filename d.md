@@ -1,7 +1,7 @@
 ---
 layout: page
-title: Requests
-permalink: /Requests/
+title: TableView
+permalink: /TableView/
 ---
 
 Następnym zadaniem będzie użycie RandomUserApiManager do pobrania losowych 20-stu użytkowników oraz wyświetlenie ich imienia i nazwiska oraz powiązania listy userów z rx'owym data source tableView (`tableView.rx.items`)
