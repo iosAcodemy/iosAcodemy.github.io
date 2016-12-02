@@ -15,7 +15,7 @@ Zadanie 1
 ----------
 <br>
 
-W pliku `SignupViewModel` dodaj trzy `Variable` dla typu `String` bez wartości początkowych:
+W pliku `SignupViewModel` dodaj 3 pola typu trzy `Variable` dla typu `String`? :
 
 * username
 * password
