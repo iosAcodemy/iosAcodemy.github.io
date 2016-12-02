@@ -4,6 +4,8 @@ title: Requests
 permalink: /Requests/
 ---
 
+Następnym zadaniem będzie użycie RandomUserApiManager do pobrania losowych 20-stu użytkowników oraz wyświetlenie ich imienia i nazwiska oraz powiązania listy userów z rx'owym data source tableView (`tableView.rx.items`)
+
 <br>
 
 Zadanie 1
@@ -11,48 +13,38 @@ Zadanie 1
 
 <br>
 
-* Przerób wyszukiwanie w FeedViewController aby odbywało sie po każdej wpisanej literce.
- <br> 
+Przejdz do pliku `RandomUsersListViewController`. 
 
-*  Wyszukiwanie ma rozpocząć sie nie wcześniej niż 300ms po wpisaniu znaku. 
- <br>
- 
-*  Ignorujemy wpisanie i skasowanie tej samej frazy
- <br>
- 
-* Wyszukiwanie ma rozpocząć sie dopiero od 3-ciego wpisanego znaku
- <br>
- 
-*  Użyj do tego RxSwifta oraz property rx_text z search bara
-
-
+W metodzie `bindViewModel()` utwórz wiązanie `viewModel.users` z property `tableView.rx.items`.
+Następnie w domknięciu metody `bindTo()` na tableView użyj metody `dequeueReusableCell` aby pobrać komórkę.
+Utwórz `UserViewModel` na podstawie modelu `User` i przypisz go do property `viewModel` komórki.
+Zwróć w domknięciu komórkę.
+<br>
+Rozpocznij pobieranie użytkowników. Użyj metody `getUsers(liczba rekordów)`.
+Aby śledzić postęp żądania, użyj metody trackActivity z parametrem `indicator`.
+Obserwuj nowe zdarzenia i sprawdź czy zapytanie zakończyło się sukcesem.
+Ustaw property `errorLabel.isHidden` na `true` w przypadku sukcesu, `false` w przypadku błędu oraz ustaw `errorLabel.text` z zawartością `error.localizedDescription`.
+Powiąż właściwość `indicator` z HUD.rx_isVisible` aby poinformować użytkownika o trwającym zapytaniu.
 
 <br>
 
 Zadanie 2
 -----------
 
+Sprawdź czy działa ;)
+
 <br>
 
-* Utwórz PlayerCellViewModel z nastepujacymi polami typu Variable: <br>
+Zadanie 3
+-----------
 
-	* nazwa
-	* wykonawca
-	* album obecnie odtwarzanej piosenki
-	* track 
+Otwórz plik `UserTableViewCell`. Uzupełnij metode `bindViewModel()`.
+Użyj `combineLatest` aby połączyć sygnały `firstName` oraz `lastName`.
+Zmapuj wartości i utwórz obiekt typu `String` oraz powiąż go z właściwościa `nameLabel.rx.text`.
+
+Zadanie 4
+-----------
+Enjoy! :party_parrot: :beers:
 
 
-
-* Stwórz konstruktor i ustaw wartości dla poszczególnych variable na podstawie przekazanego obieku Track. 
-<br>
-
-* W PlayerTableViewCell utwórz property typu PlayerCellViewModel. 
-<br>
-
-* Utwórz disposeBag. 
-<br>
-
-* Napisz metodę ktora tworzy nowy disposeBag oraz binduje informacje z viewModelu z poszczególnymi labelkami. W momencie ustawiania viewModelu wywołaj ta metodę. 
-<br>
-
-* Nadpisz metodę prepareForReuse i ustaw disposeBag na nil
+....
