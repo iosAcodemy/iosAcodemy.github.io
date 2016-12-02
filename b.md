@@ -6,7 +6,7 @@ permalink: /Bindings/
 
 <br>
 
-W chwili obecnej zmiana danych przez uytkownika nie wpływa w żaden sposób na dane wyświetlane w wizytówce - wyświetlane wartości zależą od zmiennych znajdujących się w `SimpleFormViewModel`.
+W chwili obecnej zmiana danych przez użytkownika nie wpływa w żaden sposób na dane w wizytówce - wyświetlane wartości zależą od zmiennych znajdujących się w `SimpleFormViewModel`.
 W tym ćwiczeniu nauczysz się wiązać ze sobą obiekty znajdujące się w `kontrolerze` i `ViewModelu`, tak aby zmiana ich wartości była odzwierciedlona na wizytówce.
 Spójrz na kod w klasie `SimpleFormViewController` - metoda ```bindLabels()``` odpowiada za powiązanie zmiennych z ViewModelu, z etykietami znajdującymi się w wizytówce.
 
@@ -51,7 +51,7 @@ Zadanie 3
 Zmiana daty urodzenia w `birthDatePicker` wpływa na wartość `birthLabel`, w wizytówce.
 Wykorzystaj zmienną `birthDate` z `ViewModelu` do wykonania tego zadania.
 
-* W kontrolerze zmodyfikuj metodę ```bindDatePicker()``` tak aby zmiana daty przez użytkownika wpłnęła na wartość wyświetlaną przez ```birthLabel```.
+* W kontrolerze zmodyfikuj metodę ```bindDatePicker()``` tak aby zmiana daty przez użytkownika wpłynęła na wartość wyświetlaną przez ```birthLabel```.
 
 <br>
 
