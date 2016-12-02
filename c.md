@@ -71,8 +71,7 @@ Przejdź do `ViewModelu` i na wzór `usernameValidation` dodaj tam trzy lazy pro
   * Powinien filtrować wartości typu `ValidationResult` emitowane przez `passwordValidation` i sprawdzać czy są równe `valid`. Użyj do tego operatora ==, który został przeciążony w `extension` klasy `ValidationResult`.
   * Taki zabieg pozwoli uninąć sytuacji, w której dla obu pól odpowiadających za walidacje haseł zwrócona zostałaby wartość `true`, mimo że obydwa pola zwróciłyby `invalid`.
 * retypedPasswordValidation
-  * Zwróć `Observable`, które będzie połączeniem dwóch `Observable` - `password` i `retypedPassword` i sprawdzi czy obydwie wartości są równe (pomocna będzie metoda `combineLatest`).
-  * Następnie zmapuj otrzymaną wartość z użyciem metody `validateSecondPassword(validated: Bool)`.
+  * Zwróć `Observable`, które będzie połączeniem dwóch `Observable` - `password` i `retypedPassword` i użyj tego `Observable` w metodzie `validateSecondPassword(_ password: String?, secondPassword: String?) -> ValidationResult` (pomocna będzie metoda `combineLatest`).
   * Żeby upewnić się, że emitowane będą tylko prawidłowe elementy wykorzystaj metodę `skipUntil`, której w argumencie przekażesz wcześniej zaimplementowaną zmienną `passwordValidationSignal`.
 
 <br>
@@ -125,6 +124,7 @@ Zadanie 5
 Tak jak w poprzednim ćwiczeniu zaimplementuj zachowanie dla `Clear Form`.
 
 * W metodzie `bindUI()` stwórz subskrypcję dla zdarzenia naciśnięcia ```clearFormButton```, która spowoduje wyczyszczenie formularza.
+* Użyj metody `clearForm()` z `viewModelu`.
 
 <br>
 
